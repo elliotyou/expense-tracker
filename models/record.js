@@ -8,4 +8,4 @@ const recordSchema = new Schema({
   }
 })
 
-mmodule.exports = mongoose.model('Record', recordSchema)
+module.exports = mongoose.model('Record', recordSchema)
