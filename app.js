@@ -1,5 +1,10 @@
 const express = require('express')
 const mongoose = require('mongoose')
+const exphbs = require('express-handlebars')
+
+const Record = require('./models/record')
+
+const app = express()
 
 mongoose.connect('mongodb://localhost/expense-tracker', { useNewUrlParser: true, useUnifiedTopology: true })
 const db = mongoose.connection
@@ -11,10 +16,14 @@ db.once('open', () => {
   console.log('mongodb connected!')
 })
 
-const app = express()
+app.engine('hbs', exphbs({ defaultLayout: 'main', extname: '.hbs' }))
+app.set('view engine', 'hbs')
 
 app.get('/', (req, res) => {
-  res.send('hello world!')
+  Record.find()
+    .lean()
+    .then(records => res.render('index', { records }))
+    .catch(error => console.error(error))
 })
 
 app.listen(3000, () => {
