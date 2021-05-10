@@ -4,18 +4,18 @@ const router = express.Router()
 const Record = require('../../models/record')
 
 
-app.get('/records/new', (req, res) => {
+router.get('/new', (req, res) => {
   return res.render('new')
 })
 
-app.post('/records', (req, res) => {
+router.post('/', (req, res) => {
   const { name, date, category, amount } = req.body
   return Record.create({ name, date, category, amount })
     .then(() => res.redirect('/'))
     .catch(error => console.log(error))
 })
 
-app.get('/records/:id/edit', (req, res) => {
+router.get('/:id/edit', (req, res) => {
   const id = req.params.id
   return Record.findById(id)
     .lean()
@@ -23,7 +23,7 @@ app.get('/records/:id/edit', (req, res) => {
     .catch(error => console.log(error))
 })
 
-app.put('/records/:id', (req, res) => {
+router.put('/:id', (req, res) => {
   const id = req.params.id
   const { name, date, category, amount } = req.body
 
@@ -39,7 +39,7 @@ app.put('/records/:id', (req, res) => {
     .catch(error => console.log(error))
 })
 
-app.delete('/records/:id', (req, res) => {
+router.delete('/:id', (req, res) => {
   const id = req.params.id
   return Record.findById(id)
     .then(record => record.remove())
