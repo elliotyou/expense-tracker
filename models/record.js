@@ -5,6 +5,15 @@ const recordSchema = new Schema({
   name: {
     type: String,
     require: true
+  },
+  date: {
+    type: String,
+  },
+  category: {
+    type: String,
+  },
+  amount: {
+    type: Number,
   }
 })
 

@@ -4,6 +4,10 @@
   {{#each records}}
   <li>
     {{this.name}}
+    {{this.date}}
+    {{this.category}}
+    {{this.amount}}
+
     <a href="./records/{{this._id}}/edit">Edit</a>
     <form action="./records/{{this._id}}/delete" method="POST" style="display: inline;">
       <button type="submit">Delete</button>
