@@ -3,9 +3,21 @@ const router = express.Router()
 
 const Record = require('../../models/record')
 
+const generateTodayString = function () {
+  const d = new Date()
+  const month = (d.getMonth() + 1).toString()
+  const day = (d.getDate()).toString()
+  const year = d.getFullYear()
+
+  const outputMonth = month.length < 2 ? '0' + month : month
+  const outputDay = day.length < 2 ? '0' + day : day
+
+  return [year, outputMonth, outputDay].join('-');
+}
 
 router.get('/new', (req, res) => {
-  return res.render('new')
+  const today = generateTodayString()
+  return res.render('new', { today })
 })
 
 router.post('/', (req, res) => {
@@ -46,7 +58,5 @@ router.delete('/:id', (req, res) => {
     .then(() => res.redirect('/'))
     .catch(error => console.log(error))
 })
-
-
 
 module.exports = router
