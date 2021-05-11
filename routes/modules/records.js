@@ -15,6 +15,24 @@ const generateTodayString = function () {
   return [year, outputMonth, outputDay].join('-');
 }
 
+const generateCategoryObject = function (categoryString) {
+  const categoryObject = {
+    isHome: false,
+    isTraffic: false,
+    isEntertainment: false,
+    isFood: false,
+    isOthers: false
+  }
+
+  categoryObject.isHome = categoryString === '家居物業'
+  categoryObject.isTraffic = categoryString === '交通出行'
+  categoryObject.isEntertainment = categoryString === '休閒娛樂'
+  categoryObject.isFood = categoryString === '餐飲食品'
+  categoryObject.isOthers = categoryString === '其他'
+
+  return categoryObject
+}
+
 router.get('/new', (req, res) => {
   const today = generateTodayString()
   return res.render('new', { today })
@@ -29,9 +47,13 @@ router.post('/', (req, res) => {
 
 router.get('/:id/edit', (req, res) => {
   const id = req.params.id
+
   return Record.findById(id)
     .lean()
-    .then((record) => res.render('edit', { record }))
+    .then((record) => {
+      const categoryObject = generateCategoryObject(record.category)
+      res.render('edit', { record, categoryObject })
+    })
     .catch(error => console.log(error))
 })
 
