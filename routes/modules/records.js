@@ -37,14 +37,10 @@ router.get('/:id/edit', (req, res) => {
 
 router.put('/:id', (req, res) => {
   const id = req.params.id
-  const { name, date, category, amount } = req.body
 
   return Record.findById(id)
     .then(record => {
-      record.name = name
-      record.date = date
-      record.category = category
-      record.amount = amount
+      record = Object.assign(record, req.body)
       return record.save()
     })
     .then(() => res.redirect(`/`))
