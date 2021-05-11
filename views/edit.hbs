@@ -1,5 +1,5 @@
 <form action="/records/{{record._id}}?_method=PUT" method="POST">
-  <input type="text" name="name" placeholder="name" value="{{record.name}}">
+  <input type="text" name="name" placeholder="name" value="{{record.name}}" required>
   <input type="date" name="date" placeholder="date" value="{{record.date}}">
   <select name="category" required>
     <option value="" selected disabled>選擇類別</option>
@@ -9,7 +9,7 @@
     <option value="餐飲食品" {{#if categoryObject.isFood}} selected {{/if}}>餐飲食品</option>
     <option value="其它" {{#if categoryObject.isOthers}} selected {{/if}}>其它</option>
   </select>
-  <input type="number" name="amount" placeholder="amount" step="1" min="0" value={{record.amount}}>
+  <input type="number" name="amount" placeholder="amount" step="1" min="0" value={{record.amount}} required>
   <button type="submit">Save</button>
   <a href="/">Back</a>
 </form>
