@@ -2,39 +2,10 @@ const express = require('express')
 const router = express.Router()
 
 const Record = require('../../models/record')
-
-const generateTodayString = function () {
-  const d = new Date()
-  const month = (d.getMonth() + 1).toString()
-  const day = (d.getDate()).toString()
-  const year = d.getFullYear()
-
-  const outputMonth = month.length < 2 ? '0' + month : month
-  const outputDay = day.length < 2 ? '0' + day : day
-
-  return [year, outputMonth, outputDay].join('-');
-}
-
-const generateCategoryObject = function (categoryString) {
-  const categoryObject = {
-    isHome: false,
-    isTraffic: false,
-    isEntertainment: false,
-    isFood: false,
-    isOthers: false
-  }
-
-  categoryObject.isHome = categoryString === '家居物業'
-  categoryObject.isTraffic = categoryString === '交通出行'
-  categoryObject.isEntertainment = categoryString === '休閒娛樂'
-  categoryObject.isFood = categoryString === '餐飲食品'
-  categoryObject.isOthers = categoryString === '其他'
-
-  return categoryObject
-}
+const tools = require('../../tools/tools')
 
 router.get('/new', (req, res) => {
-  const today = generateTodayString()
+  const today = tools.generateTodayString()
   return res.render('new', { today })
 })
 
@@ -51,7 +22,7 @@ router.get('/:id/edit', (req, res) => {
   return Record.findById(id)
     .lean()
     .then((record) => {
-      const categoryObject = generateCategoryObject(record.category)
+      const categoryObject = tools.generateCategoryObject(record.category)
       res.render('edit', { record, categoryObject })
     })
     .catch(error => console.log(error))

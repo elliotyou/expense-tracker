@@ -1,3 +1,14 @@
+<form action="/">
+  <select name="category" onchange="this.form.submit();">
+    <option value="" selected disabled>選擇類別</option>
+    <option value="isHome">家居物業</option>
+    <option value="isTraffic">交通出行</option>
+    <option value="isEntertainment">休閒娛樂</option>
+    <option value="isFood">餐飲食品</option>
+    <option value="isOthers">其它</option>
+  </select>
+</form>
+
 <h3>Total Amount: {{totalAmount}}</h3>
 
 <a href="./records/new">Create</a>
@@ -9,6 +20,7 @@
     {{this.date}}
     {{this.category}}
     {{this.amount}}
+    {{this.categoryIconCode}}
 
     <a href="./records/{{this._id}}/edit">Edit</a>
     <form action="./records/{{this._id}}?_method=DELETE" method="POST" style="display: inline;">
