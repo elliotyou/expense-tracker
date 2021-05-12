@@ -1,12 +1,12 @@
 <form action="/">
   <select name="category" onchange="this.form.submit();">
     <option value="" selected disabled>類別</option>
-    <option value="isAll">全部選取</option>
-    <option value="isHome">家居物業</option>
-    <option value="isTraffic">交通出行</option>
-    <option value="isEntertainment">休閒娛樂</option>
-    <option value="isFood">餐飲食品</option>
-    <option value="isOthers">其它</option>
+    <option value="isAll" {{#if categoryObject.isAll}}selected{{/if}}>全部選取</option>
+    <option value="isHome" {{#if categoryObject.isHome}}selected{{/if}}>家居物業</option>
+    <option value="isTraffic" {{#if categoryObject.isTraffic}}selected{{/if}}>交通出行</option>
+    <option value="isEntertainment" {{#if categoryObject.isEntertainment}}selected{{/if}}>休閒娛樂</option>
+    <option value="isFood" {{#if categoryObject.isFood}}selected{{/if}}>餐飲食品</option>
+    <option value="isOthers" {{#if categoryObject.isOthers}}selected{{/if}}>其它</option>
   </select>
 </form>
 

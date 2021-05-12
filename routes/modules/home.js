@@ -38,8 +38,8 @@ router.get('/', (req, res) => {
   const category = req.query.category
   const isNoCategoryQuery = typeof (category) === 'undefined'
   const isSelectAll = category === 'isAll'
-
   const recordFind = (isNoCategoryQuery || isSelectAll) ? Record.find() : Record.find({ category })
+  const categoryObject = tools.generateCategoryObject(category)  //for Handlebars
 
   return recordFind
     .lean()
@@ -48,7 +48,7 @@ router.get('/', (req, res) => {
       records.forEach(record => {
         record['categoryIconCode'] = generateIconCode(record.category)
       })
-      res.render('index', { records, totalAmount })
+      res.render('index', { records, totalAmount, categoryObject })
     })
     .catch(error => console.error(error))
 })
