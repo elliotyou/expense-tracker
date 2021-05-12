@@ -1,14 +1,63 @@
-<form action="/records" method="POST">
-  <input type="text" name="name" placeholder="name">
-  <input type="date" name="date" placeholder="date" value="{{today}}">
-  <select name="category" required>
-    <option value="" selected disabled>選擇類別</option>
-    <option value="isHome">家居物業</option>
-    <option value="isTraffic">交通出行</option>
-    <option value="isEntertainment">休閒娛樂</option>
-    <option value="isFood">餐飲食品</option>
-    <option value="isOthers">其它</option>
-  </select>
-  <input type="number" name="amount" placeholder="amount" step="1" min="0" value="0" required>
-  <button type="submit">Create</button>
-</form>
+<dev class="container">
+  <div class="row">
+    <div class="card mx-auto col-12" style="max-width: 500px;">
+      <div class="card-body">
+        <h5 class="card-title">新增支出</h5>
+        <hr>
+        <form action="/records" method="POST">
+
+          <div class="form-group form-row">
+            <div class="col-3">
+              <label for="name" class="col-form-label">名稱</label>
+            </div>
+            <div class="col-9">
+              <input class="form-control" type="text" name="name" placeholder="name" value="{{record.name}}" required>
+            </div>
+          </div>
+
+          <div class="form-group form-row">
+            <div class="col-3">
+              <label for="name" class="col-form-label">日期</label>
+            </div>
+            <div class="col-9">
+              <input class="form-control" type="date" name="date" placeholder="date" value="{{record.date}}">
+            </div>
+          </div>
+
+          <div class="form-group form-row">
+            <div class="col-3">
+              <label for="name" class="col-form-label">分類</label>
+            </div>
+            <div class="col-9">
+              <select class="form-control" name="category" required>
+                <option value="" selected disabled>選擇類別</option>
+                <option value="isHome" {{#if categoryObject.isHome}} selected {{/if}}>家居物業</option>
+                <option value="isTraffic" {{#if categoryObject.isTraffic}} selected {{/if}}>交通出行</option>
+                <option value="isEntertainment" {{#if categoryObject.isEntertainment}} selected {{/if}}>休閒娛樂</option>
+                <option value="isFood" {{#if categoryObject.isFood}} selected {{/if}}>餐飲食品</option>
+                <option value="isOthers" {{#if categoryObject.isOthers}} selected {{/if}}>其它</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group form-row">
+            <div class="col-3">
+              <label for="name" class="col-form-label">金額</label>
+            </div>
+            <div class="col-9">
+              <input class="form-control" type="number" name="amount" placeholder="amount" step="1" min="0"
+                value={{record.amount}} required>
+            </div>
+          </div>
+
+          <div class="d-flex justify-content-end">
+            <button class="btn btn-dark" type="submit">新增</button>
+            <a class="btn btn-dark ml-2" href="/">返回</a>
+          </div>
+
+          <div class=""></div>
+        </form>
+      </div>
+    </div>
+  </div>
+</dev>
