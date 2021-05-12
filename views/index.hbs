@@ -14,19 +14,24 @@
 
 <a href="./records/new">Create</a>
 
-<ul>
+<ul class="list-group">
   {{#each records}}
-  <li>
-    {{this.name}}
-    {{this.date}}
-    {{this.category}}
-    {{this.amount}}
-    {{this.categoryIconCode}}
-
-    <a href="./records/{{this._id}}/edit">Edit</a>
-    <form action="./records/{{this._id}}?_method=DELETE" method="POST" style="display: inline;">
-      <button type="submit">Delete</button>
-    </form>
+  <li class="list-group-item">
+    <div class="row">
+      <div class="col-auto mr-auto">
+        {{this.categoryIconCode}}
+        <h4 style="display: inline;vertical-align:middle;">{{this.name}}</h4>
+        <h4 style="display: inline;vertical-align:middle;">{{this.date}}</h4>
+        <h4 style="display: inline;vertical-align:middle;">{{this.category}}</h4>
+        <h4 style="display: inline;vertical-align:middle;">{{this.amount}}</h4>
+      </div>
+      <div class="col-auto">
+        <a class="btn btn-success" href="./records/{{this._id}}/edit">Edit</a>
+        <form action="./records/{{this._id}}?_method=DELETE" method="POST" style="display: inline;">
+          <button class="btn btn-danger" type="submit">Delete</button>
+        </form>
+      </div>
+    </div>
   </li>
   {{/each}}
 </ul>
