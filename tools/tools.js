@@ -25,19 +25,19 @@ const tools = {
     let output = ''
     switch (categoryString) {
       case 'isHome':
-        output = 'homeIconCode'
+        output = `<i class="fas fa-home"></i>`
         break
       case 'isTraffic':
-        output = 'trafficIconCode'
+        output = `<i class="fas fa-bus"></i>`
         break
       case 'isEntertainment':
-        output = 'entertainmentIconCode'
+        output = `<i class="fas fa-gamepad"></i>`
         break
       case 'isFood':
-        output = 'foodIconCode'
+        output = `<i class="fas fa-hamburger"></i>`
         break
       case 'isOthers':
-        output = 'othersIconcode'
+        output = `<i class="fas fa-file-word"></i>`
         break
     }
     return output

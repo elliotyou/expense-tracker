@@ -10,25 +10,27 @@
   </select>
 </form>
 
-<h3>Total Amount: ${{totalAmount}}</h3>
+<h3>Total Amount: ${{totalAmount}} <i class="fas fa-home"></i></h3>
 
 <ul class="list-group">
   {{#each records}}
-  <li class="list-group-item">
-    <div class="row">
-      <div class="col-auto mr-auto">
-        {{this.categoryIconCode}}
-        <h4 style="display: inline;vertical-align:middle;">{{this.name}}</h4>
-        <h4 style="display: inline;vertical-align:middle;">{{this.date}}</h4>
-        <h4 style="display: inline;vertical-align:middle;">${{this.amount}}</h4>
+  <div class="container">
+    <li class="list-group-item mx-auto" style="max-width: 800px;">
+      <div class="row">
+        <div class="col-auto mr-auto">
+
+          <h4 style="display: inline;vertical-align:middle;">{{{this.categoryIconCode}}}{{this.name}}</h4>
+          <h4 style="display: inline;vertical-align:middle;">{{this.date}}</h4>
+          <h4 style="display: inline;vertical-align:middle;">${{this.amount}}</h4>
+        </div>
+        <div class="col-auto">
+          <a class="btn btn-outline-dark" href="./records/{{this._id}}/edit">Edit</a>
+          <form action="./records/{{this._id}}?_method=DELETE" method="POST" style="display: inline;">
+            <button class="btn btn-outline-danger" type="submit">Delete</button>
+          </form>
+        </div>
       </div>
-      <div class="col-auto">
-        <a class="btn btn-success" href="./records/{{this._id}}/edit">Edit</a>
-        <form action="./records/{{this._id}}?_method=DELETE" method="POST" style="display: inline;">
-          <button class="btn btn-danger" type="submit">Delete</button>
-        </form>
-      </div>
-    </div>
-  </li>
+    </li>
+  </div>
   {{/each}}
 </ul>
