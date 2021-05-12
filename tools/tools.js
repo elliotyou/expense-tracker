@@ -19,6 +19,42 @@ const tools = {
       isFood: categoryString === 'isFood',
       isOthers: categoryString === 'isOthers'
     }
+  },
+
+  generateOneIconCode(categoryString) {
+    let output = ''
+    switch (categoryString) {
+      case 'isHome':
+        output = 'homeIconCode'
+        break
+      case 'isTraffic':
+        output = 'trafficIconCode'
+        break
+      case 'isEntertainment':
+        output = 'entertainmentIconCode'
+        break
+      case 'isFood':
+        output = 'foodIconCode'
+        break
+      case 'isOthers':
+        output = 'othersIconcode'
+        break
+    }
+    return output
+  },
+
+  generateIconCodes(records) {
+    records.forEach(record => {
+      record['categoryIconCode'] = this.generateOneIconCode(record.category)
+    })
+  },
+
+  sumAmount(records) {
+    let sum = 0
+    records.forEach(record => {
+      sum += record.amount
+    })
+    return sum
   }
 }
 
