@@ -1,9 +1,10 @@
 const Record = require('../record')
 const db = require('../../config/mongoose')
+const records = require('./record.json')
 
 db.once('open', () => {
-  for (let i = 0; i < 10; i++) {
-    Record.create({ name: `name + ${i}` })
-  }
+  records.results.forEach(record => {
+    Record.create(record)
+  })
   console.log('done!')
 })

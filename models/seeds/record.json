@@ -1,0 +1,64 @@
+{
+  "results": [
+    {
+      "name": "AC課程2-1",
+      "date": "2021-05-01",
+      "category": "isOthers",
+      "amount": 12000
+    },
+    {
+      "name": "搭捷運",
+      "date": "2021-04-25",
+      "category": "isTraffic",
+      "amount": 45
+    },
+    {
+      "name": "房租",
+      "date": "2021-05-10",
+      "category": "isHome",
+      "amount": 10450
+    },
+    {
+      "name": "麥當勞",
+      "date": "2021-04-10",
+      "category": "isFood",
+      "amount": 199
+    },
+    {
+      "name": "買桌遊",
+      "date": "2021-04-18",
+      "category": "isEntertainment",
+      "amount": 3300
+    },
+    {
+      "name": "書:原子習慣",
+      "date": "2021-04-21",
+      "category": "isOthers",
+      "amount": 380
+    },
+    {
+      "name": "汽車加油",
+      "date": "2021-04-06",
+      "category": "isTraffic",
+      "amount": 1500
+    },
+    {
+      "name": "水電瓦斯",
+      "date": "2021-04-29",
+      "category": "isHome",
+      "amount": 800
+    },
+    {
+      "name": "熱炒聚餐",
+      "date": "2021-05-01",
+      "category": "isFood",
+      "amount": 199
+    },
+    {
+      "name": "錢櫃唱歌",
+      "date": "2021-04-29",
+      "category": "isEntertainment",
+      "amount": 1100
+    }
+  ]
+}
