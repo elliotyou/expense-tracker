@@ -43,6 +43,7 @@ router.get('/', (req, res) => {
 
   return recordFind
     .lean()
+    .sort({ date: 'desc' })
     .then(records => {
       const totalAmount = sumAmount(records)
       records.forEach(record => {
