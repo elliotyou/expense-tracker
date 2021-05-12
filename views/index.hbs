@@ -10,9 +10,7 @@
   </select>
 </form>
 
-<h3>Total Amount: {{totalAmount}}</h3>
-
-<a href="./records/new">Create</a>
+<h3>Total Amount: ${{totalAmount}}</h3>
 
 <ul class="list-group">
   {{#each records}}
@@ -22,8 +20,7 @@
         {{this.categoryIconCode}}
         <h4 style="display: inline;vertical-align:middle;">{{this.name}}</h4>
         <h4 style="display: inline;vertical-align:middle;">{{this.date}}</h4>
-        <h4 style="display: inline;vertical-align:middle;">{{this.category}}</h4>
-        <h4 style="display: inline;vertical-align:middle;">{{this.amount}}</h4>
+        <h4 style="display: inline;vertical-align:middle;">${{this.amount}}</h4>
       </div>
       <div class="col-auto">
         <a class="btn btn-success" href="./records/{{this._id}}/edit">Edit</a>

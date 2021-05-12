@@ -1,15 +1,64 @@
-<form action="/records/{{record._id}}?_method=PUT" method="POST">
-  <input type="text" name="name" placeholder="name" value="{{record.name}}" required>
-  <input type="date" name="date" placeholder="date" value="{{record.date}}">
-  <select name="category" required>
-    <option value="" selected disabled>選擇類別</option>
-    <option value="isHome" {{#if categoryObject.isHome}} selected {{/if}}>家居物業</option>
-    <option value="isTraffic" {{#if categoryObject.isTraffic}} selected {{/if}}>交通出行</option>
-    <option value="isEntertainment" {{#if categoryObject.isEntertainment}} selected {{/if}}>休閒娛樂</option>
-    <option value="isFood" {{#if categoryObject.isFood}} selected {{/if}}>餐飲食品</option>
-    <option value="isOthers" {{#if categoryObject.isOthers}} selected {{/if}}>其它</option>
-  </select>
-  <input type="number" name="amount" placeholder="amount" step="1" min="0" value={{record.amount}} required>
-  <button type="submit">Save</button>
-  <a href="/">Back</a>
-</form>
+<dev class="container">
+  <div class="row">
+    <div class="col-12 col-lg-10 col-xl-8 mx-auto">
+      <div class="card mx-auto" style="max-width: 500px;">
+        <div class="card-body">
+          <h5 class="card-title">修改內容</h5>
+          <hr>
+          <form action="/records/{{record._id}}?_method=PUT" method="POST">
+
+            <div class="form-group form-row">
+              <div class="col-3">
+                <label for="name" class="col-form-label">名稱</label>
+              </div>
+              <div class="col-9">
+                <input class="form-control" type="text" name="name" placeholder="name" value="{{record.name}}" required>
+              </div>
+            </div>
+
+            <div class="form-group form-row">
+              <div class="col-3">
+                <label for="name" class="col-form-label">日期</label>
+              </div>
+              <div class="col-9">
+                <input class="form-control" type="date" name="date" placeholder="date" value="{{record.date}}">
+              </div>
+            </div>
+
+            <div class="form-group form-row">
+              <div class="col-3">
+                <label for="name" class="col-form-label">分類</label>
+              </div>
+              <div class="col-9">
+                <select class="form-control" name="category" required>
+                  <option value="" selected disabled>選擇類別</option>
+                  <option value="isHome" {{#if categoryObject.isHome}} selected {{/if}}>家居物業</option>
+                  <option value="isTraffic" {{#if categoryObject.isTraffic}} selected {{/if}}>交通出行</option>
+                  <option value="isEntertainment" {{#if categoryObject.isEntertainment}} selected {{/if}}>休閒娛樂</option>
+                  <option value="isFood" {{#if categoryObject.isFood}} selected {{/if}}>餐飲食品</option>
+                  <option value="isOthers" {{#if categoryObject.isOthers}} selected {{/if}}>其它</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-group form-row">
+              <div class="col-3">
+                <label for="name" class="col-form-label">金額</label>
+              </div>
+              <div class="col-9">
+                <input class="form-control" type="number" name="amount" placeholder="amount" step="1" min="0"
+                  value={{record.amount}} required>
+              </div>
+            </div>
+
+            <div class="form-group form-row d-flex justify-content-end">
+              <button class="btn btn-dark" type="submit">Save</button>
+              <a class="btn btn-dark ml-2" href="/">Back</a>
+            </div>
+
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</dev>
