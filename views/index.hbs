@@ -1,36 +1,44 @@
-<form action="/">
-  <select name="category" onchange="this.form.submit();">
-    <option value="" selected disabled>類別</option>
-    <option value="isAll" {{#if categoryObject.isAll}}selected{{/if}}>全部選取</option>
-    <option value="isHome" {{#if categoryObject.isHome}}selected{{/if}}>家居物業</option>
-    <option value="isTraffic" {{#if categoryObject.isTraffic}}selected{{/if}}>交通出行</option>
-    <option value="isEntertainment" {{#if categoryObject.isEntertainment}}selected{{/if}}>休閒娛樂</option>
-    <option value="isFood" {{#if categoryObject.isFood}}selected{{/if}}>餐飲食品</option>
-    <option value="isOthers" {{#if categoryObject.isOthers}}selected{{/if}}>其它</option>
-  </select>
-</form>
+<div class="container" style="max-width: 800px; min-width:500px">
 
-<h3>Total Amount: ${{totalAmount}} <i class="fas fa-home"></i></h3>
+  <div class="row d-flex justify-content-between align-items-center my-5">
+    <div class="col">
+      <h3>Total Amount: ${{totalAmount}}</h3>
+    </div>
+    <div class="col">
+      <form action="/">
+        <select class="form-control" name="category" onchange="this.form.submit();" style="min-width: 30%;">
+          <option value="" selected disabled>類別</option>
+          <option value="isAll" {{#if categoryObject.isAll}}selected{{/if}}>全部選取</option>
+          <option value="isHome" {{#if categoryObject.isHome}}selected{{/if}}>家居物業</option>
+          <option value="isTraffic" {{#if categoryObject.isTraffic}}selected{{/if}}>交通出行</option>
+          <option value="isEntertainment" {{#if categoryObject.isEntertainment}}selected{{/if}}>休閒娛樂</option>
+          <option value="isFood" {{#if categoryObject.isFood}}selected{{/if}}>餐飲食品</option>
+          <option value="isOthers" {{#if categoryObject.isOthers}}selected{{/if}}>其它</option>
+        </select>
+      </form>
+    </div>
+  </div>
 
-<ul class="list-group">
   {{#each records}}
-  <div class="container">
-    <li class="list-group-item mx-auto" style="max-width: 800px;">
-      <div class="row">
-        <div class="col-auto mr-auto">
-
-          <h4 style="display: inline;vertical-align:middle;">{{{this.categoryIconCode}}}{{this.name}}</h4>
-          <h4 style="display: inline;vertical-align:middle;">{{this.date}}</h4>
-          <h4 style="display: inline;vertical-align:middle;">${{this.amount}}</h4>
-        </div>
-        <div class="col-auto">
-          <a class="btn btn-outline-dark" href="./records/{{this._id}}/edit">Edit</a>
-          <form action="./records/{{this._id}}?_method=DELETE" method="POST" style="display: inline;">
-            <button class="btn btn-outline-danger" type="submit">Delete</button>
-          </form>
+  <div class="row">
+    <div class="col-1 text-center pl-3 pr-2" style="font-size: 2.5em;">{{{this.categoryIconCode}}}</div>
+    <div class="col d-flex">
+      <div class="col d-flex flex-column">
+        <h4>{{this.name}}</h4>
+        <p>{{this.date}}</p>
+      </div>
+      <div class="col d-flex align-items-center">
+        <div class="col-6 text-right p-0">
+          <h6>${{this.amount}}</h6>
         </div>
       </div>
-    </li>
+    </div>
+    <div class="col-auto d-flex align-items-center">
+      <a class="btn btn-outline-dark" href="./records/{{this._id}}/edit">Edit</a>
+      <form action="./records/{{this._id}}?_method=DELETE" method="POST" style="display: inline;">
+        <button class="btn btn-outline-danger ml-2" type="submit">Delete</button>
+      </form>
+    </div>
   </div>
   {{/each}}
-</ul>
+</div>
