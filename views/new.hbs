@@ -11,7 +11,7 @@
               <label for="name" class="col-form-label">名稱</label>
             </div>
             <div class="col-9">
-              <input class="form-control" type="text" name="name" placeholder="name" value="{{record.name}}" required>
+              <input class="form-control" type="text" name="name" placeholder="name" required>
             </div>
           </div>
 
@@ -20,7 +20,7 @@
               <label for="name" class="col-form-label">日期</label>
             </div>
             <div class="col-9">
-              <input class="form-control" type="date" name="date" placeholder="date" value="{{record.date}}">
+              <input class="form-control" type="date" name="date" placeholder="date" value="{{today}}">
             </div>
           </div>
 
@@ -31,11 +31,11 @@
             <div class="col-9">
               <select class="form-control" name="category" required>
                 <option value="" selected disabled>選擇類別</option>
-                <option value="isHome" {{#if categoryObject.isHome}} selected {{/if}}>家居物業</option>
-                <option value="isTraffic" {{#if categoryObject.isTraffic}} selected {{/if}}>交通出行</option>
-                <option value="isEntertainment" {{#if categoryObject.isEntertainment}} selected {{/if}}>休閒娛樂</option>
-                <option value="isFood" {{#if categoryObject.isFood}} selected {{/if}}>餐飲食品</option>
-                <option value="isOthers" {{#if categoryObject.isOthers}} selected {{/if}}>其它</option>
+                <option value="isHome">家居物業</option>
+                <option value="isTraffic">交通出行</option>
+                <option value="isEntertainment">休閒娛樂</option>
+                <option value="isFood">餐飲食品</option>
+                <option value="isOthers">其它</option>
               </select>
             </div>
           </div>
@@ -45,8 +45,7 @@
               <label for="name" class="col-form-label">金額</label>
             </div>
             <div class="col-9">
-              <input class="form-control" type="number" name="amount" placeholder="amount" step="1" min="0"
-                value={{record.amount}} required>
+              <input class="form-control" type="number" name="amount" placeholder="amount" step="1" min="0" required>
             </div>
           </div>
 
