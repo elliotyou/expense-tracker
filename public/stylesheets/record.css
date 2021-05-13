@@ -1,7 +1,7 @@
-.row:nth-child(even) .elliot{
- background-color: #dcdcdc;
+.row:nth-child(even) .main-record{
+ background-color: #EBEBEB;
 }
 
-.row:nth-child(odd) .elliot{
- background-color: #aaaaaa;
+.row:nth-child(odd) .main-record{
+ background-color: #F5F5F5;
 }
