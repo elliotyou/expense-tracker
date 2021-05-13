@@ -3,7 +3,7 @@
   <div class="row d-flex justify-content-center align-items-center my-5">
     <div class="col-auto d-flex">
       <p class="mr-2">總金額:</p>
-      <h2 class="mb-0" style="font-size: 3em; color:brown;">${{totalAmount}}</h2>
+      <h2 class="mb-0" style="font-size: 3em; color:#A63F03;">${{totalAmount}}</h2>
     </div>
     <div class="col-4">
       <form action="/">
@@ -22,8 +22,10 @@
 
   {{#each records}}
   <div class="row">
-    <div class="col-1 text-center pl-3 pr-2" style="font-size: 2.5em;">{{{this.categoryIconCode}}}</div>
-    <div class="col d-flex">
+    <div class="col col-md-8 d-flex elliot">
+      <div class="col-auto p-0 text-center" style="min-width: 3em;">
+        <h2>{{{this.categoryIconCode}}}</h2>
+      </div>
       <div class="col d-flex flex-column">
         <h4>{{this.name}}</h4>
         <p>{{this.date}}</p>
@@ -42,4 +44,5 @@
     </div>
   </div>
   {{/each}}
+
 </div>

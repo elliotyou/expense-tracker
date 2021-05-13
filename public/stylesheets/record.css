@@ -1,0 +1,7 @@
+.row:nth-child(even) .elliot{
+ background-color: #dcdcdc;
+}
+
+.row:nth-child(odd) .elliot{
+ background-color: #aaaaaa;
+}
