@@ -5,3 +5,7 @@
 .row:nth-child(odd) .main-record{
  background-color: #F5F5F5;
 }
+
+.row .main-record:hover{
+  background-color: #D2D2D2;
+}
