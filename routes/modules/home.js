@@ -6,10 +6,9 @@ const tools = require('../../tools/tools')
 
 router.get('/', (req, res) => {
   const category = req.query.category
-  const isNoCategoryQuery = typeof (category) === 'undefined'
-  const isSelectAll = category === 'isAll'
+  const isCategorySelectAll = (typeof (category) === 'undefined') || (category === 'isAll')
   const userId = req.user._id
-  const recordFind = (isNoCategoryQuery || isSelectAll) ? Record.find({ userId }) : Record.find({ userId, category })
+  const recordFind = isCategorySelectAll ? Record.find({ userId }) : Record.find({ userId, category })
   const categoryObject = tools.generateCategoryObject(category)  //for Handlebars
 
   return recordFind
