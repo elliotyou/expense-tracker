@@ -16,8 +16,9 @@
   <header>
     <nav class="navbar navbar-dark bg-dark">
       <a href="/" class="navbar-brand">
-        <h3 class="m-0">家庭記帳本</h3>
+        <h3 class="m-0">{{#if isAuthenticated}}{{user.name}}{{/if}} 家庭記帳本</h3>
       </a>
+      {{#if isAuthenticated}}<a href="/users/logout">登出</a>{{/if}}
     </nav>
   </header>
 
