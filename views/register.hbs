@@ -1,1 +1,29 @@
-<h2>Register</h2>
+<form action="/users/register" method="POST">
+
+  <div class="form-group">
+    <label for="name">姓名</label>
+    <input type="name" name="name" id="name" placeholder="輸入姓名">
+  </div>
+
+  <div class="form-group">
+    <label for="email">Email</label>
+    <input type="email" name="email" id="email" placeholder="輸入Email帳號">
+  </div>
+
+  <div class="form-group">
+    <label for="password">密碼</label>
+    <input type="password" name="password" id="password" placeholder="輸入密碼">
+  </div>
+
+  <div class="form-group">
+    <label for="confirmPassword">確認密碼</label>
+    <input type="password" name="confirmPassword" id="confirmPassword" placeholder="再次輸入密碼">
+  </div>
+
+  <button type="submit">註冊</button>
+
+  <p>
+    已有帳號？ <a href="/users/login">登入</a>
+  </p>
+
+</form>
