@@ -4,6 +4,7 @@ const router = express.Router()
 const Record = require('../../models/record')
 const tools = require('../../tools/tools')
 
+//CREATE
 router.get('/new', (req, res) => {
   const today = tools.generateTodayString()
   return res.render('new', { today })
@@ -17,6 +18,7 @@ router.post('/', (req, res) => {
     .catch(error => console.log(error))
 })
 
+//UPDATE
 router.get('/:id/edit', (req, res) => {
   const _id = req.params.id
   const userId = req.user._id
@@ -43,6 +45,7 @@ router.put('/:id', (req, res) => {
     .catch(err => console.log(err))
 })
 
+//DELETE
 router.delete('/:id', (req, res) => {
   const _id = req.params.id
   const userId = req.user._id

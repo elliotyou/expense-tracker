@@ -5,7 +5,9 @@ const bodyParser = require('body-parser')
 const methodOverride = require('method-override')
 const flash = require('connect-flash')
 
-require('dotenv').config()
+if (process.env.NODE_ENV !== 'production') {
+  require('dotenv').config()
+}
 
 const routes = require('./routes')
 
@@ -17,7 +19,13 @@ require('./config/mongoose')
 const app = express()
 const PORT = process.env.PORT
 
-app.engine('hbs', exphbs({ defaultLayout: 'main', extname: '.hbs' }))
+app.engine('hbs', exphbs({
+  defaultLayout: 'main',
+  extname: '.hbs',
+  helpers: {
+    isSame: (val1, val2, options) => val1 === val2 ? options.fn(this) : options.inverse(this)
+  }
+}))
 app.set('view engine', 'hbs')
 app.use(session({
   secret: process.env.SESSION_SECRET,

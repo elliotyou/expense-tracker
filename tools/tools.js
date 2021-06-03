@@ -11,15 +11,15 @@ const tools = {
     return [year, outputMonth, outputDay].join('-');
   },
 
-  generateCategoryObject(categoryString) {
-    return {
-      isHome: categoryString === 'isHome',
-      isTraffic: categoryString === 'isTraffic',
-      isEntertainment: categoryString === 'isEntertainment',
-      isFood: categoryString === 'isFood',
-      isOthers: categoryString === 'isOthers'
-    }
-  },
+  // generateCategoryObject(categoryString) {
+  //   return {
+  //     isHome: categoryString === 'isHome',
+  //     isTraffic: categoryString === 'isTraffic',
+  //     isEntertainment: categoryString === 'isEntertainment',
+  //     isFood: categoryString === 'isFood',
+  //     isOthers: categoryString === 'isOthers'
+  //   }
+  // },
 
   generateOneIconCode(categoryString) {
     let output = ''

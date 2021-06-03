@@ -5,7 +5,16 @@
 
       <form action="/">
         <select class="form-control mt-5" name="category" onchange="this.form.submit();" style="min-width: 30%;">
-          <option value="" selected disabled>類別</option>
+          <option value="isAll" {{#isSame category isAll}}selected{{/isSame}}>全部選取</option>
+          {{#each categories}}
+          <option value="{{this}}" {{#isSame this ../category}}selected{{/isSame}}>{{this}}</option>
+          {{/each}}
+        </select>
+      </form>
+
+      {{!-- <form action="/">
+        <select class="form-control mt-5" name="category" onchange="this.form.submit();" style="min-width: 30%;">
+          <option value="isAll" selected disabled>類別</option>
           <option value="isAll" {{#if categoryObject.isAll}}selected{{/if}}>全部選取</option>
           <option value="isHome" {{#if categoryObject.isHome}}selected{{/if}}>家居物業</option>
           <option value="isTraffic" {{#if categoryObject.isTraffic}}selected{{/if}}>交通出行</option>
@@ -13,7 +22,7 @@
           <option value="isFood" {{#if categoryObject.isFood}}selected{{/if}}>餐飲食品</option>
           <option value="isOthers" {{#if categoryObject.isOthers}}selected{{/if}}>其它</option>
         </select>
-      </form>
+      </form> --}}
 
       <div class="d-flex justify-content-around align-items-center my-4">
 
