@@ -3,6 +3,7 @@ const router = express.Router()
 
 const Record = require('../../models/record')
 const tools = require('../../tools/tools')
+const categories = require('../../config/parameters').categories
 
 //CREATE
 router.get('/new', (req, res) => {
@@ -26,8 +27,9 @@ router.get('/:id/edit', (req, res) => {
   return Record.findOne({ _id, userId })
     .lean()
     .then((record) => {
-      const categoryObject = tools.generateCategoryObject(record.category)
-      res.render('edit', { record, categoryObject })
+      // const categoryObject = tools.generateCategoryObject(record.category)
+      const category = record.category
+      res.render('edit', { record, categories, category })
     })
     .catch(error => console.log(error))
 })

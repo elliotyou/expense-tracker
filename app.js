@@ -13,7 +13,6 @@ const routes = require('./routes')
 
 const usePassport = require('./config/passport')
 
-
 require('./config/mongoose')
 
 const app = express()

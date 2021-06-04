@@ -2,10 +2,10 @@ const express = require('express')
 const router = express.Router()
 
 const Record = require('../../models/record')
-// const tools = require('../../tools/tools')
+const tools = require('../../tools/tools')
+const categories = require('../../config/parameters').categories
 
 router.get('/', async (req, res) => {
-  const categories = ['家居物業', '交通出行', '休閒娛樂', '餐飲食品', '其他']
   const category = req.query.category
   const isCategorySelectAll = (category === undefined) || (category === 'isAll')
   const userId = req.user._id

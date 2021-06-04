@@ -30,12 +30,14 @@
             </div>
             <div class="col-9">
               <select class="form-control" name="category" required>
-                <option value="" selected disabled>選擇類別</option>
-                <option value="isHome" {{#if categoryObject.isHome}} selected {{/if}}>家居物業</option>
+                {{#each categories}}
+                <option value="{{this}}" {{#isSame this ../category}}selected{{/isSame}}>{{this}}</option>
+                {{/each}}
+                {{!-- <option value="isHome" {{#if categoryObject.isHome}} selected {{/if}}>家居物業</option>
                 <option value="isTraffic" {{#if categoryObject.isTraffic}} selected {{/if}}>交通出行</option>
                 <option value="isEntertainment" {{#if categoryObject.isEntertainment}} selected {{/if}}>休閒娛樂</option>
                 <option value="isFood" {{#if categoryObject.isFood}} selected {{/if}}>餐飲食品</option>
-                <option value="isOthers" {{#if categoryObject.isOthers}} selected {{/if}}>其它</option>
+                <option value="isOthers" {{#if categoryObject.isOthers}} selected {{/if}}>其它</option> --}}
               </select>
             </div>
           </div>

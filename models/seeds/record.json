@@ -4,13 +4,15 @@
       "name": "AC課程2-1",
       "date": "2021-05-01",
       "category": "其他",
-      "amount": 12000
+      "amount": 12000,
+      "merchant": "AlphaCamp"
     },
     {
       "name": "搭捷運",
       "date": "2021-04-25",
       "category": "交通出行",
-      "amount": 45
+      "amount": 45,
+      "merchant": "台北捷運局"
     },
     {
       "name": "房租",
@@ -19,46 +21,53 @@
       "amount": 10450
     },
     {
-      "name": "麥當勞",
+      "name": "大麥克漢堡",
       "date": "2021-04-10",
       "category": "餐飲食品",
-      "amount": 199
+      "amount": 199,
+      "merchant": "麥當勞"
     },
     {
       "name": "買桌遊",
       "date": "2021-04-18",
       "category": "休閒娛樂",
-      "amount": 3300
+      "amount": 3300,
+      "merchant": "桌遊侍"
     },
     {
       "name": "書:原子習慣",
       "date": "2021-04-21",
       "category": "其他",
-      "amount": 380
+      "amount": 380,
+      "merchant": "博客來"
     },
     {
       "name": "汽車加油",
       "date": "2021-04-06",
       "category": "交通出行",
-      "amount": 1500
+      "amount": 1500,
+      "merchant": "中油"
     },
     {
       "name": "水電瓦斯",
       "date": "2021-04-29",
       "category": "家居物業",
-      "amount": 800
+      "amount": 800,
+      "merchant": "台灣自來水公司"
     },
     {
       "name": "熱炒聚餐",
       "date": "2021-05-01",
       "category": "餐飲食品",
-      "amount": 199
+      "amount": 199,
+      "merchant": "尚介青"
     },
     {
       "name": "錢櫃唱歌",
       "date": "2021-04-29",
       "category": "休閒娛樂",
-      "amount": 1100
+      "amount": 1100,
+      "merchant": "錢櫃"
     }
   ]
 }
