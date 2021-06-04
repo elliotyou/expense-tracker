@@ -32,7 +32,7 @@
               <select class="form-control" name="category" required>
                 <option value="" selected disabled>選擇類別</option>
                 {{#each categories}}
-                <option value="{{this}}" {{#isSame this ../category}}selected{{/isSame}}>{{this}}</option>
+                <option value="{{this}}">{{this}}</option>
                 {{/each}}
                 {{!-- <option value="isHome">家居物業</option>
                 <option value="isTraffic">交通出行</option>
