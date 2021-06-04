@@ -8,7 +8,7 @@ const categories = require('../../config/parameters').categories
 //CREATE
 router.get('/new', (req, res) => {
   const today = tools.generateTodayString()
-  return res.render('new', { today })
+  return res.render('new', { today, categories })
 })
 
 router.post('/', (req, res) => {

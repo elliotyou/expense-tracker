@@ -31,11 +31,14 @@
             <div class="col-9">
               <select class="form-control" name="category" required>
                 <option value="" selected disabled>選擇類別</option>
-                <option value="isHome">家居物業</option>
+                {{#each categories}}
+                <option value="{{this}}" {{#isSame this ../category}}selected{{/isSame}}>{{this}}</option>
+                {{/each}}
+                {{!-- <option value="isHome">家居物業</option>
                 <option value="isTraffic">交通出行</option>
                 <option value="isEntertainment">休閒娛樂</option>
                 <option value="isFood">餐飲食品</option>
-                <option value="isOthers">其它</option>
+                <option value="isOthers">其它</option> --}}
               </select>
             </div>
           </div>
