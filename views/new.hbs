@@ -17,7 +17,7 @@
 
           <div class="form-group form-row">
             <div class="col-3">
-              <label for="name" class="col-form-label">日期</label>
+              <label for="date" class="col-form-label">日期</label>
             </div>
             <div class="col-9">
               <input class="form-control" type="date" name="date" placeholder="date" value="{{today}}">
@@ -26,7 +26,7 @@
 
           <div class="form-group form-row">
             <div class="col-3">
-              <label for="name" class="col-form-label">分類</label>
+              <label for="category" class="col-form-label">分類</label>
             </div>
             <div class="col-9">
               <select class="form-control" name="category" required>
@@ -45,10 +45,19 @@
 
           <div class="form-group form-row">
             <div class="col-3">
-              <label for="name" class="col-form-label">金額</label>
+              <label for="amount" class="col-form-label">金額</label>
             </div>
             <div class="col-9">
               <input class="form-control" type="number" name="amount" placeholder="amount" step="1" min="0" required>
+            </div>
+          </div>
+
+          <div class="form-group form-row">
+            <div class="col-3">
+              <label for="merchant" class="col-form-label">店家</label>
+            </div>
+            <div class="col-9">
+              <input class="form-control" type="text" name="merchant" placeholder="merchant">
             </div>
           </div>
 

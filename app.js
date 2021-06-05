@@ -10,6 +10,7 @@ if (process.env.NODE_ENV !== 'production') {
 }
 
 const routes = require('./routes')
+const tools = require('./tools/tools')
 
 const usePassport = require('./config/passport')
 
@@ -22,7 +23,8 @@ app.engine('hbs', exphbs({
   defaultLayout: 'main',
   extname: '.hbs',
   helpers: {
-    isSame: (val1, val2, options) => val1 === val2 ? options.fn(this) : options.inverse(this)
+    isSame: (val1, val2, options) => val1 === val2 ? options.fn(this) : options.inverse(this),
+    convertToDateString: tools.convertToDateString
   }
 }))
 app.set('view engine', 'hbs')

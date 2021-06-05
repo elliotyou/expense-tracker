@@ -1,16 +1,26 @@
 const tools = {
-  generateTodayString() {
-    const d = new Date()
-    const month = (d.getMonth() + 1).toString()
-    const day = (d.getDate()).toString()
-    const year = d.getFullYear()
+  // generateTodayString() {
+  //   const d = new Date()
+
+  //   const month = (d.getMonth() + 1).toString()
+  //   const day = (d.getDate()).toString()
+  //   const year = d.getFullYear()
+
+  //   const outputMonth = month.length < 2 ? '0' + month : month
+  //   const outputDay = day.length < 2 ? '0' + day : day
+
+  //   return [year, outputMonth, outputDay].join('-');
+  // },
+  convertToDateString(date) {
+    const month = (date.getMonth() + 1).toString()
+    const day = (date.getDate()).toString()
+    const year = date.getFullYear()
 
     const outputMonth = month.length < 2 ? '0' + month : month
     const outputDay = day.length < 2 ? '0' + day : day
 
     return [year, outputMonth, outputDay].join('-');
   },
-
   // generateCategoryObject(categoryString) {
   //   return {
   //     isHome: categoryString === 'isHome',
@@ -24,19 +34,19 @@ const tools = {
   generateOneIconCode(categoryString) {
     let output = ''
     switch (categoryString) {
-      case 'isHome':
+      case '家居物業':
         output = `<i class="fas fa-home"></i>`
         break
-      case 'isTraffic':
+      case '交通出行':
         output = `<i class="fas fa-bus"></i>`
         break
-      case 'isEntertainment':
+      case '休閒娛樂':
         output = `<i class="fas fa-gamepad"></i>`
         break
-      case 'isFood':
+      case '餐飲食品':
         output = `<i class="fas fa-hamburger"></i>`
         break
-      case 'isOthers':
+      case '其他':
         output = `<i class="fas fa-file-word"></i>`
         break
     }

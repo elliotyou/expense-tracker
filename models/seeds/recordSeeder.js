@@ -11,9 +11,9 @@ const User = require('../user')
 
 
 const SEED_USER = {
-  name: 'John',
-  email: 'john@ac.com.tw',
-  password: 'john'
+  name: 'aaa',
+  email: 'aaa@aaa.aaa',
+  password: 'aaa'
 }
 
 db.once('open', () => {
@@ -31,7 +31,7 @@ db.once('open', () => {
         { length: records.length },
         (_, i) => Record.create({
           name: records[i].name,
-          date: records[i].date,
+          date: new Date(records[i].date),
           category: records[i].category,
           amount: records[i].amount,
           merchant: records[i].merchant,
