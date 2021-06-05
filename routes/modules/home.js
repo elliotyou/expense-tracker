@@ -11,11 +11,17 @@ router.get('/', (req, res) => {
   const userId = req.user._id
 
   // const categoryObject = tools.generateCategoryObject(category)  //for Handlebars
-  const recordFind = isCategorySelectAll ? Record.find({ userId }) : Record.find({ userId, category })
+  // const recordFind = isCategorySelectAll ? Record.find({ userId }) : Record.find({ userId, category })
 
-  return recordFind
+  return Record.find({ userId })
     .lean()
     .sort({ date: 'desc' })
+    .then(records => {
+      if (!isCategorySelectAll) {
+        records = records.filter(record => record.category === category)
+      }
+      return records
+    })
     .then(records => {
       const totalAmount = tools.sumAmount(records)
       tools.generateIconCodes(records)
