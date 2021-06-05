@@ -10,6 +10,14 @@
           <option value="{{this}}" {{#isSame this ../category}}selected{{/isSame}}>{{this}}</option>
           {{/each}}
         </select>
+
+        <select class="form-control mt-5" name="monthIndex" onchange="this.form.submit();" style="min-width: 30%;">
+          <option value="isAll" {{#isSame month isAll}}selected{{/isSame}}>全部選取</option>
+          {{#each months}}
+          <option value="{{this.index}}" {{#isSame this.index ../monthIndex}}selected{{/isSame}}>{{this.value}}</option>
+          {{/each}}
+        </select>
+
       </form>
 
       {{!-- <form action="/">

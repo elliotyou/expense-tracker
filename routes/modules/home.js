@@ -4,10 +4,13 @@ const router = express.Router()
 const Record = require('../../models/record')
 const tools = require('../../tools/tools')
 const categories = require('../../config/parameters').categories
+const months = require('../../config/parameters').months
 
 router.get('/', (req, res) => {
   const category = req.query.category
+  let monthIndex = req.query.monthIndex
   const isCategorySelectAll = (category === undefined) || (category === 'isAll')
+  const isMonthSelectAll = (monthIndex === undefined) || monthIndex === 'isAll'
   const userId = req.user._id
 
   // const categoryObject = tools.generateCategoryObject(category)  //for Handlebars
@@ -20,13 +23,18 @@ router.get('/', (req, res) => {
       if (!isCategorySelectAll) {
         records = records.filter(record => record.category === category)
       }
+      if (!isMonthSelectAll) {
+        records = records.filter(record => {
+          monthIndex = Number(monthIndex)
+          return Number(record.date.getMonth()) === monthIndex
+        })
+      }
       return records
     })
     .then(records => {
       const totalAmount = tools.sumAmount(records)
       tools.generateIconCodes(records)
-      res.render('index', { records, totalAmount, categories, category })
-      // res.render('index', { records, totalAmount, categoryObject })
+      res.render('index', { records, totalAmount, categories, category, months, monthIndex })
     })
     .catch(err => console.log(err))
 })
