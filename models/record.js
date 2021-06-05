@@ -4,17 +4,20 @@ const Schema = mongoose.Schema
 const recordSchema = new Schema({
   name: {
     type: String,
-    require: true
+    required: true
   },
   date: {
     type: Date,
-    default: Date.now
+    default: Date.now,
+    required: true
   },
   category: {
     type: String,
+    required: true
   },
   amount: {
     type: Number,
+    required: true
   },
   merchant: {
     type: String,

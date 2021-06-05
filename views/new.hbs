@@ -1,3 +1,4 @@
+{{> message}}
 <dev class="container">
   <div class="row">
     <div class="card mx-auto col-12" style="max-width: 500px;">
@@ -11,7 +12,7 @@
               <label for="name" class="col-form-label">名稱</label>
             </div>
             <div class="col-9">
-              <input class="form-control" type="text" name="name" placeholder="name" required>
+              <input class="form-control" type="text" name="name" placeholder="name" value="{{record.name}}">
             </div>
           </div>
 
@@ -20,7 +21,7 @@
               <label for="date" class="col-form-label">日期</label>
             </div>
             <div class="col-9">
-              <input class="form-control" type="date" name="date" placeholder="date" value="{{today}}">
+              <input class="form-control" type="date" name="date" placeholder="date" value="{{record.date}}">
             </div>
           </div>
 
@@ -29,10 +30,10 @@
               <label for="category" class="col-form-label">分類</label>
             </div>
             <div class="col-9">
-              <select class="form-control" name="category" required>
+              <select class="form-control" name="category">
                 <option value="" selected disabled>選擇類別</option>
                 {{#each categories}}
-                <option value="{{this}}">{{this}}</option>
+                <option value="{{this}}" {{#isSame this ../record.category}}selected{{/isSame}}>{{this}}</option>
                 {{/each}}
                 {{!-- <option value="isHome">家居物業</option>
                 <option value="isTraffic">交通出行</option>
@@ -48,7 +49,8 @@
               <label for="amount" class="col-form-label">金額</label>
             </div>
             <div class="col-9">
-              <input class="form-control" type="number" name="amount" placeholder="amount" step="1" min="0" required>
+              <input class="form-control" type="number" name="amount" placeholder="amount" step="1" min="0"
+                value="{{record.amount}}">
             </div>
           </div>
 
@@ -57,7 +59,8 @@
               <label for="merchant" class="col-form-label">店家</label>
             </div>
             <div class="col-9">
-              <input class="form-control" type="text" name="merchant" placeholder="merchant">
+              <input class="form-control" type="text" name="merchant" placeholder="merchant"
+                value="{{record.merchant}}">
             </div>
           </div>
 

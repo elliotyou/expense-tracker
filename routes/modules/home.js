@@ -25,8 +25,7 @@ router.get('/', (req, res) => {
       }
       if (!isMonthSelectAll) {
         records = records.filter(record => {
-          monthIndex = Number(monthIndex)
-          return Number(record.date.getMonth()) === monthIndex
+          return Number(record.date.getMonth()) === Number(monthIndex)
         })
       }
       return records
@@ -34,6 +33,7 @@ router.get('/', (req, res) => {
     .then(records => {
       const totalAmount = tools.sumAmount(records)
       tools.generateIconCodes(records)
+      monthIndex = Number(monthIndex)
       res.render('index', { records, totalAmount, categories, category, months, monthIndex })
     })
     .catch(err => console.log(err))

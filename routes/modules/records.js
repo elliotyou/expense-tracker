@@ -2,19 +2,29 @@ const express = require('express')
 const router = express.Router()
 
 const Record = require('../../models/record')
+const { validator } = require('../../middleware/validator')
 const tools = require('../../tools/tools')
 const categories = require('../../config/parameters').categories
 
 //CREATE
 router.get('/new', (req, res) => {
-  const today = tools.convertToDateString(new Date())
-  return res.render('new', { today, categories })
+  const record = {
+    date: tools.convertToDateString(new Date())
+  }
+  return res.render('new', { record, categories })
 })
 
-router.post('/', (req, res) => {
+router.post('/', validator, (req, res) => {
+  const { errors, record } = res.locals
+
+  if (errors.length > 0) {
+    return res.render('new', { errors, record, categories })
+  }
+
+  const userId = req.user._id
   const { name, category, amount, merchant } = req.body
   const date = new Date(req.body.date)
-  const userId = req.user._id
+
   return Record.create({ name, date, category, amount, merchant, userId })
     .then(() => res.redirect('/'))
     .catch(err => console.log(err))
@@ -35,9 +45,16 @@ router.get('/:id/edit', (req, res) => {
     .catch(err => console.log(err))
 })
 
-router.put('/:id', (req, res) => {
+router.put('/:id', validator, (req, res) => {
+  // console.log('into routes/modules/records...req.locals', res.locals)
+  const { errors, record } = res.locals
   const _id = req.params.id
   const userId = req.user._id
+
+  if (errors.length > 0) {
+    record.date = new Date(record.date)
+    return res.render('edit', { errors, record, categories })
+  }
 
   return Record.findOne({ _id, userId })
     .then(record => {
