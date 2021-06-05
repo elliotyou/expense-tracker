@@ -27,7 +27,7 @@ router.get('/:id/edit', (req, res) => {
 
   return Record.findOne({ _id, userId })
     .lean()
-    .then((record) => {
+    .then(record => {
       // const categoryObject = tools.generateCategoryObject(record.category)
       const category = record.category
       res.render('edit', { record, categories, category })

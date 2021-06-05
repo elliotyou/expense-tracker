@@ -17,10 +17,11 @@
 
           <div class="form-group form-row">
             <div class="col-3">
-              <label for="name" class="col-form-label">日期</label>
+              <label for="date" class="col-form-label">日期</label>
             </div>
             <div class="col-9">
-              <input class="form-control" type="date" name="date" placeholder="date" value="{{record.date}}">
+              <input class="form-control" type="date" name="date" placeholder="date"
+                value="{{convertToDateString record.date}}">
             </div>
           </div>
 
