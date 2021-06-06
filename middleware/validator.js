@@ -10,8 +10,6 @@ module.exports = {
     record._id = req.params.id || ''
     const errors = []
 
-    // console.log('into middleware/validator.js...record', record)
-
     if (!record.name || !record.date || !record.category || !record.amount) {
       errors.push({ message: '名稱、日期、分類、金額 為必填欄位' })
     }
@@ -31,8 +29,6 @@ module.exports = {
     res.locals.errors = errors
     res.locals.record = record
 
-    // console.log('into middleware/validator.js...errors', errors)
-    // console.log('into middleware/validator.js...recordObject', recordObject)
     next()
   }
 }

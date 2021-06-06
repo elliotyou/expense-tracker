@@ -1,6 +1,5 @@
 const express = require('express')
 const router = express.Router()
-
 const passport = require('passport')
 const bcrypt = require('bcryptjs')
 
@@ -13,7 +12,6 @@ router.get('/login', (req, res) => {
 router.post('/login', passport.authenticate('local', {
   successRedirect: '/',
   failureRedirect: '/users/login',
-  // failureMessage: true
 }))
 
 router.get('/register', (req, res) => {

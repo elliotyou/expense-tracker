@@ -10,11 +10,8 @@ router.get('/', (req, res) => {
   const category = req.query.category
   let monthIndex = req.query.monthIndex
   const isCategorySelectAll = (category === undefined) || (category === 'isAll')
-  const isMonthSelectAll = (monthIndex === undefined) || monthIndex === 'isAll'
+  const isMonthSelectAll = (monthIndex === undefined) || (monthIndex === 'isAll')
   const userId = req.user._id
-
-  // const categoryObject = tools.generateCategoryObject(category)  //for Handlebars
-  // const recordFind = isCategorySelectAll ? Record.find({ userId }) : Record.find({ userId, category })
 
   return Record.find({ userId })
     .lean()

@@ -38,7 +38,6 @@ router.get('/:id/edit', (req, res) => {
   return Record.findOne({ _id, userId })
     .lean()
     .then(record => {
-      // const categoryObject = tools.generateCategoryObject(record.category)
       const category = record.category
       res.render('edit', { record, categories, category })
     })
@@ -46,7 +45,6 @@ router.get('/:id/edit', (req, res) => {
 })
 
 router.put('/:id', validator, (req, res) => {
-  // console.log('into routes/modules/records...req.locals', res.locals)
   const { errors, record } = res.locals
   const _id = req.params.id
   const userId = req.user._id
@@ -70,7 +68,7 @@ router.delete('/:id', (req, res) => {
   const _id = req.params.id
   const userId = req.user._id
 
-  return Record.findOne({ id, userId })
+  return Record.findOne({ _id, userId })
     .then(record => record.remove())
     .then(() => res.redirect('/'))
     .catch(err => console.log(err))

@@ -45,23 +45,3 @@ db.once('open', () => {
     })
     .catch(err => console.log(err))
 })
-
-
-
-
-
-// let actionsOfCreating = []
-// for (let i = 0; i < records.length; i++) {
-//   actionsOfCreating.push(() => {
-//     return Record.create({
-//       name: records[i].name,
-//       date: records[i].date,
-//       category: records[i].category,
-//       amount: records[i].amount,
-//       userId
-//     })
-//   })
-// }
-
-// return Promise.all(actionsOfCreating)
-//   .then(() => console.log('success'))
